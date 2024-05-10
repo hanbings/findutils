@@ -167,7 +167,7 @@ fn process_dir<'a>(
                     it.skip_current_dir();
                 }
                 if let Ok(metadata) = entry.metadata() {
-                    if metadata.is_symlink() {
+                    if !config.sorted_output && metadata.is_symlink() {
                         *quit = true;
                         break;
                     }
