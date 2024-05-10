@@ -166,6 +166,12 @@ fn process_dir<'a>(
                 if matcher_io.should_skip_current_dir() {
                     it.skip_current_dir();
                 }
+                if let Ok(metadata) = entry.metadata() {
+                    if metadata.is_symlink() {
+                        *quit = true;
+                        break;
+                    }
+                }
             }
         }
     }
