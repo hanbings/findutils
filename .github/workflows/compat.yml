@@ -209,5 +209,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: ${{ github.event.number }},
-              body: 'GNU testsuite comparison:\n```\n' + annotationContent + '```'
+              body: 'GNU testsuite comparison:\n```\n' + annotationContent + '\n```'
             });
