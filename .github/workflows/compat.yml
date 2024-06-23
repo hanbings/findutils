@@ -200,6 +200,7 @@ jobs:
 
             let annotationContent = annotations
               .data
+              .filter((value, index, self) => self.findIndex(v => v.run === value.run) === index)
               .map(annotation => `${annotation.run}: ${annotation.annotation.message}`)
               .join('\n');
 
